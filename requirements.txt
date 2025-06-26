@@ -1,0 +1,9 @@
+streamlit
+torch
+transformers
+sentence-transformers
+pinecone-client==3.0.0
+scikit-learn
+pandas
+PyPDF2
+python-dotenv
