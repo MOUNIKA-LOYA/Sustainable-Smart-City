@@ -9,12 +9,16 @@ from transformers import AutoTokenizer, AutoModelForSeq2SeqLM, pipeline
 from googletrans import Translator
 import speech_recognition as sr
 
+# ✅ Set Streamlit page config at the top
+st.set_page_config(page_title="Smart City AI", layout="wide")
+
+st.title("🌆 Smart City AI Sustainability Assistant")
+
 # -------------------- ENV VARIABLES -------------------- #
 PINECONE_AVAILABLE = False  # You disabled Pinecone usage.
 
 # -------------------- LOCAL MODEL -------------------- #
 @st.cache_resource
-
 def load_local_model():
     model_name = "google/flan-t5-base"
     tokenizer = AutoTokenizer.from_pretrained(model_name)
@@ -29,7 +33,6 @@ def query_llm(user_question):
     prompt = f"Answer the following question in detail:\n{user_question}"
     result = llm(prompt, max_new_tokens=512, do_sample=True, temperature=0.8, top_p=0.95)
     return result[0]['generated_text']
-
 
 def extract_text_from_pdf(file):
     reader = PdfReader(file)
@@ -56,32 +59,29 @@ def translate_text(text, dest_lang):
     return translated.text
 
 # -------------------- STREAMLIT UI -------------------- #
-st.set_page_config(page_title="Smart City AI", layout="wide")
-st.title("\U0001F306 Smart City Sustainability Assistant")
-
-menu = st.sidebar.radio("Navigate", ["\U0001F4C4 Policy Assistant", "\U0001F9D1 Citizen Tools", "\U0001F4C8 City Analytics"])
+menu = st.sidebar.radio("Navigate", ["📄 Policy Assistant", "🧑 Citizen Tools", "📈 City Analytics"])
 
 # -------------------- 1. POLICY ASSISTANT -------------------- #
-if menu == "\U0001F4C4 Policy Assistant":
-    st.header("\U0001F4C4 AI Policy Assistant")
+if menu == "📄 Policy Assistant":
+    st.header("📄 AI Policy Assistant")
     file = st.file_uploader("Upload Policy Document (PDF)", type="pdf")
     if file:
         text = extract_text_from_pdf(file)
         st.text_area("Extracted Text", text, height=200)
 
-        if st.button("\U0001F50D Summarize Policy"):
+        if st.button("🔍 Summarize Policy"):
             summary = query_llm("Summarize this:\n" + text)
             st.success("Summary:")
             st.write(summary)
 
 # -------------------- 2. CITIZEN TOOLS -------------------- #
-elif menu == "\U0001F9D1 Citizen Tools":
-    st.header("\U0001F9D1 Citizen Engagement")
+elif menu == "🧑 Citizen Tools":
+    st.header("🧑 Citizen Engagement")
     issue = st.text_area("Describe the issue")
-    if st.button("\U0001F4EC Submit Issue"):
+    if st.button("📬 Submit Issue"):
         st.success("Thanks! Your report is noted.")
 
-    if st.button("\u267B\uFE0F Generate Eco Tips"):
+    if st.button("♻️ Generate Eco Tips"):
         tips = query_llm("Give 3 eco-friendly tips for city citizens.")
         st.info(tips)
 
@@ -89,19 +89,19 @@ elif menu == "\U0001F9D1 Citizen Tools":
     with col1:
         question = st.text_input("Ask a sustainability question")
     with col2:
-        if st.button("\U0001F3A4 Voice"):
+        if st.button("🎤 Voice"):
             question = recognize_voice()
 
-    lang = st.selectbox("\U0001F310 Translate answer to", ["en", "hi", "te", "ta", "bn"])
+    lang = st.selectbox("🌐 Translate answer to", ["en", "hi", "te", "ta", "bn"])
 
-    if st.button("\U0001F4AC Ask") and question:
+    if st.button("💬 Ask") and question:
         answer = query_llm(question)
         translated = translate_text(answer, lang)
         st.success(translated)
 
 # -------------------- 3. CITY ANALYTICS -------------------- #
-elif menu == "\U0001F4C8 City Analytics":
-    st.header("\U0001F4CA City KPI Analysis")
+elif menu == "📈 City Analytics":
+    st.header("📊 City KPI Analysis")
     file = st.file_uploader("Upload KPI CSV (Date, Value)", type="csv")
     if file:
         df = pd.read_csv(file)
@@ -111,12 +111,13 @@ elif menu == "\U0001F4C8 City Analytics":
 
         model = LinearRegression().fit(df[['Time']], df['Value'])
         forecast = model.predict([[df['Time'].max() + 1]])[0]
-        st.success(f"\U0001F4C8 Forecasted Next Value: {forecast:.2f}")
+        st.success(f"📈 Forecasted Next Value: {forecast:.2f}")
 
         iso = IsolationForest(contamination=0.1)
         df['Anomaly'] = iso.fit_predict(df[['Value']])
-        st.subheader("\U0001F6A8 Anomalies")
+        st.subheader("🚨 Anomalies")
         st.dataframe(df[df['Anomaly'] == -1])
 
 st.markdown("---")
-st.caption("Built with 🤖 Transformers, \U0001f4ab FAISS-ready, and Streamlit")
+st.caption("Built with 🤖 Transformers, 💡 FAISS-ready, and Streamlit")
+
