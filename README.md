@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # 🌆 Smart City AI Sustainability Assistant
 
 An AI-powered web app built using **Streamlit**, **Hugging Face Transformers**, and **FAISS/Pinecone** to support smart city governance, sustainability planning, and citizen engagement.
@@ -42,3 +43,6 @@ An AI-powered web app built using **Streamlit**, **Hugging Face Transformers**, 
 ```bash
 git clone https://github.com/MOUNIKA-LOYA/smart-city-ai.git
 cd smart-city-ai
+=======
+
+>>>>>>> 67edf1b382eded641b2f1e19842bedbd855142d5
