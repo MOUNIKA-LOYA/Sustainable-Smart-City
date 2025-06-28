@@ -44,3 +44,12 @@ An AI-powered web app built using **Streamlit**, **Hugging Face Transformers**, 
    ```bash
    git clone https://github.com/MOUNIKA-LOYA/Sustainable-Smart-City.git
    cd Sustainable-Smart-City
+## 🎥 Demo Video
+
+Watch the full demo of our Sustainable Smart City AI Assistant in action:
+
+▶️   https://drive.google.com/file/d/1uf8x8JiN-H_C6x9tZrmWmJhaFd5qkIr3/view?usp=sharing
+
+> The demo includes policy upload, voice Q&A, translation, and KPI forecasting.
+
+   
