@@ -40,9 +40,7 @@ An AI-powered web app built using **Streamlit**, **Hugging Face Transformers**, 
 
 ### Step 1: Clone the repo
 
-```bash
-git clone https://github.com/MOUNIKA-LOYA/smart-city-ai.git
-cd smart-city-ai
-=======
-
->>>>>>> 67edf1b382eded641b2f1e19842bedbd855142d5
+1. Clone this repository:
+   ```bash
+   git clone https://github.com/MOUNIKA-LOYA/Sustainable-Smart-City.git
+   cd Sustainable-Smart-City
