@@ -1,30 +1,30 @@
 
-# 🌆 Smart City AI Sustainability Assistant
+ 🌆 Smart City AI Sustainability Assistant
 
-An AI-powered web app built using **Streamlit**, **Hugging Face Transformers**, and **FAISS/Pinecone** to support smart city governance, sustainability planning, and citizen engagement.
+An AI-powered web app built using Streamlit, Hugging Face Transformers, and FAISS/Pinecone to support smart city governance, sustainability planning, and citizen engagement.
 
 ---
 
-## 🔧 Features
+ 🔧 Features
 
-### 📄 Policy Assistant
+📄 Policy Assistant
 - Upload city policies in PDF format
 - AI-generated summaries using FLAN-T5
 - Semantic search using vector similarity (FAISS or Pinecone)
 
-### 🧑 Citizen Tools
+Citizen Tools
 - Voice & text-based questions about sustainability
 - Eco-friendly tip generation
 - Report urban issues (e.g., water leaks, street lights)
 
-### 📈 City Analytics
+📈 City Analytics
 - Upload KPI data (CSV)
 - Linear regression forecasting
 - Anomaly detection using Isolation Forest
 
 ---
 
-## 🧠 Technologies Used
+🧠 Technologies Used
 
 - `Python`
 - `Streamlit` for web UI
@@ -36,15 +36,15 @@ An AI-powered web app built using **Streamlit**, **Hugging Face Transformers**, 
 
 ---
 
-## 🚀 How to Run
+ How to Run
 
-### Step 1: Clone the repo
+Step 1: Clone the repo
 
 1. Clone this repository:
    ```bash
    git clone https://github.com/MOUNIKA-LOYA/Sustainable-Smart-City.git
    cd Sustainable-Smart-City
-## 🎥 Demo Video
+🎥 Demo Video
 
 Watch the full demo of our Sustainable Smart City AI Assistant in action:
 
