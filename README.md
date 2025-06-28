@@ -1,11 +1,11 @@
 
- 🌆 Smart City AI Sustainability Assistant
+ 🌆 Sustainable Smart City Assistant
 
 An AI-powered web app built using Streamlit, Hugging Face Transformers, and FAISS/Pinecone to support smart city governance, sustainability planning, and citizen engagement.
 
 ---
 
- 🔧 Features
+Features
 
 📄 Policy Assistant
 - Upload city policies in PDF format
